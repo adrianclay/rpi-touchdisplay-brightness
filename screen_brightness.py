@@ -28,4 +28,4 @@ class ScreenBrightness:
         date = datetime.datetime.utcnow().astimezone()
         altitude_deg = pysolar.solar.get_altitude(self.lat, self.long, date)
         radiation = pysolar.radiation.get_radiation_direct(date, altitude_deg)
-        return radiation / 863
+        return min(radiation / 863, 1.0)

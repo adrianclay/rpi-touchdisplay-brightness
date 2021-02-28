@@ -17,8 +17,8 @@ class ScreenBrightnessTest(TestCase):
         self.screen_brightness.update_based_on_time_of_day()
         self.assert_brightness('254')
 
-    @freeze_time("2021-02-12 12:14:00")
-    def test_midday_winter(self):
+    @freeze_time("2021-02-28 13:41:00")
+    def test_overflow_of_radiation_maxes_at_255(self):
         self.screen_brightness.update_based_on_time_of_day()
         self.assert_brightness('255')
 
